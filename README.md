@@ -12,7 +12,7 @@ to comment, suggest or collaborate anything.
 | [trovit/php-kafka](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
 
 
-###Example of use:
+### Example of use:
 Up any container locally running the next command in your project root path:
 
 ```$ docker run -it -d --name=php-kafka -v $PWD:/app -v ~/.ssh:/root/.ssh -p "2222:22" trovit/php-kafka:dev```
