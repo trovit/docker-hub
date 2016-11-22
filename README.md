@@ -6,10 +6,10 @@ to comment, suggest or collaborate anything.
 
 | Image              | Tag  | Description                                                                                         |
 |--------------------|------|-----------------------------------------------------------------------------------------------------|
-| trovit/beanstalkd  | prod | A light beanstalkd server based in *Alpine*.                                                        |
-| trovit/beanstalkd  | dev  | Include beanstool cli tool. Type `beanstool -h` to get a complete list of available commands.       |
-| trovit/php-kafka   | prod | PHP-FPM 7.0 daemon with `php7-rdkafka` extension enabled.                                              |
-| trovit/php-kafka   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
+| [trovit/beanstalkd](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.prod)  | prod | A light beanstalkd server based in *Alpine*.                                                        |
+| [trovit/beanstalkd](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.dev)  | dev  | Include beanstool cli tool. Type `beanstool -h` to get a complete list of available commands.       |
+| [trovit/php-kafka](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.prod)   | prod | PHP-FPM 7.0 daemon with `php7-rdkafka` extension enabled.                                              |
+| [trovit/php-kafka](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
 
 
 ###Example of use:
