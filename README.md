@@ -6,16 +6,16 @@ to comment, suggest or collaborate anything.
 
 | Image              | Tag  | Description                                                                                         |
 |--------------------|------|-----------------------------------------------------------------------------------------------------|
-| [trovit/beanstalkd](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.prod)  | prod | A light beanstalkd server based in *Alpine*.                                                        |
-| [trovit/beanstalkd](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.dev)  | dev  | Include beanstool cli tool. Type `beanstool -h` to get a complete list of available commands.       |
-| [trovit/php-kafka](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.prod)   | prod | PHP-FPM 7.0 daemon with `php7-rdkafka` extension enabled.                                              |
-| [trovit/php-kafka](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
+| [trovit/docker-hub:beanstalkd-prod](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.prod)  | prod | A light beanstalkd server based in *Alpine*.                                                        |
+| [trovit/docker-hub:beanstalkd-dev](https://github.com/trovit/docker-hub/blob/master/beanstalkd/Dockerfile.dev)  | dev  | Include beanstool cli tool. Type `beanstool -h` to get a complete list of available commands.       |
+| [trovit/docker-hub:php-kafka-prod](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.prod)   | prod | PHP-FPM 7.0 daemon with `php7-rdkafka` extension enabled.                                              |
+| [trovit/docker-hub:php-kafka-dev](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
 
 
 ### Example of use:
 Up any container locally running the next command in your project root path:
 
-```$ docker run -it -d --name=php-kafka -v $PWD:/app -v ~/.ssh:/root/.ssh -p "2222:22" trovit/php-kafka:dev```
+```$ docker run -it -d --name=php-kafka -v $PWD:/app -v ~/.ssh:/root/.ssh -p "2222:22" trovit/docker-hub:php-kafka-dev```
 
 Then you can SSH into:
 
@@ -36,7 +36,7 @@ version: '2'
 services:
 
     php-kafka:
-        image: trovit/php-kafka:dev
+        image: trovit/docker-hub:php-kafka-dev
         container_name: php-kafka
         volumes:
             - $PWD:/app
