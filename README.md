@@ -1,5 +1,5 @@
 # Trovit Dockerfile hub
-This project is part of the [Trovit Docker Hub](https://hub.docker.com/r/trovit/) account.
+This project is part of the [Trovit's Docker Hub account](https://hub.docker.com/r/trovit/).
 
 Below you can find a collection of docker images created by the Trovit Tech Team. Feel free
 to comment, suggest or collaborate anything.
