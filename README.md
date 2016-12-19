@@ -11,7 +11,7 @@ to comment, suggest or collaborate anything.
 | [trovit/docker-hub:php-kafka-prod](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.prod)   | prod | PHP-FPM 7.0 daemon with `php7-rdkafka` extension enabled.                                              |
 | [trovit/docker-hub:php-kafka-dev](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
 | [trovit/docker-hub:proxy-kafka](https://github.com/trovit/docker-hub/blob/master/kafka-proxy/Dockerfile)   | -   | Include the Kafka-Pixy that it is a local aggregating HTTP proxy to Kafka. All based in ubuntu. It is necessary to define two variables KAFKA_PROXY_HOSTS and ZOOKEEPER_PROXY_HOSTS |
-| [trovit/docker-hub:gitlab-runner-docker](https://github.com/trovit/docker-hub/blob/master/gitlab-runner/docker/Dockerfile)   | -   | Gilab-runner (CI) for dockerized projects. We recommend sharing the docker host daemon, gitlab-runner/config folder and certs folders from host to inside container. |
+| [trovit/docker-hub:gitlab-runner-docker](https://github.com/trovit/docker-hub/blob/master/gitlab-runner/docker/Dockerfile)   | -   | Gilab-runner (CI) for run dockerized projects. We recommend sharing the docker host daemon, gitlab-runner/config folder and certs folders from host to inside container. |
 
 ### Example of use:
 Up any container locally running the next command in your project root path:
