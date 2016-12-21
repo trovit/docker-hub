@@ -12,13 +12,13 @@ RUN apk add --no-cache \
 		curl \
 		openssl \
     && set -x \
-	&& curl -fSL "https://${DOCKER_BUCKET}/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz \
-	&& echo "${DOCKER_SHA256} *docker.tgz" | sha256sum -c - \
-	&& tar -xzvf docker.tgz \
-	&& mv docker/* /usr/bin/ \
-	&& rmdir docker \
-	&& rm docker.tgz \
-	&& docker -v \
+    && curl -fSL "https://${DOCKER_BUCKET}/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz \
+    && echo "${DOCKER_SHA256} *docker.tgz" | sha256sum -c - \
+    && tar -xzvf docker.tgz \
+    && mv docker/* /usr/bin/ \
+    && rmdir docker \
+    && rm docker.tgz \
+    && docker -v \
     && curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/run.sh > /usr/bin/docker-compose \
     && chmod +x /usr/bin/docker-compose \
     && addgroup -g ${DOCKER_GROUP_UID} -S docker \
