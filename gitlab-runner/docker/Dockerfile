@@ -25,7 +25,7 @@ RUN apk add --update curl \
     && rmdir docker \
     && rm docker.tgz \
     && docker -v \
-    && curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/run.sh > /usr/bin/docker-compose \
+    && curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose \
     && chmod +x /usr/bin/docker-compose \
     && apk del curl \
     && rm -rf glibc.apk glibc-bin.apk /var/cache/apk/* \
