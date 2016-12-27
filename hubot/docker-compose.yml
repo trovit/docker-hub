@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+    node-npm:
+        build: 
+            dockerfile: node/Dockerfile
+            context: .
+        container_name: node_npm
+        depends_on:
+            - redis
+        networks:
+            - sasha
+        environment:
+            - REDIS_URL=redis://redis:6379
+            - HUBOT_SLACK_TOKEN=${SLACK_TOKEN}
+
+    redis:
+        image: redis:3.0-alpine
+        container_name: redis
+        networks:
+            - sasha
+
+networks:
+    sasha:
