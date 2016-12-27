@@ -9,10 +9,11 @@ This project is part of the [Trovit's Docker Hub account](https://hub.docker.com
 
 The full party begin when you create some service with this image and share the *docker.sock* from your host into the container. 
 Be sure to [install docker engine](https://docs.docker.com/engine/installation/) correctly in your host system and create 
-a folder for saving the gitlab-runner configuration:
+a folder for saving the gitlab-runner configuration and sharing the gitlab-runner's home folder:
 
 ```
 mkdir -p /var/gitlab-runner/config
+mkdir /var/gitlab-runner/home
 ```
 
 Then, you can start the service:
@@ -21,7 +22,8 @@ Then, you can start the service:
 docker run -it -d --name gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock -v /var/gitlab-runner/config:/etc/gitlab-runner -v /var/gitlab-runner/home:/home/gitlab-runner trovit/docker-hub:gitlab-runner-docker
 ```
 
-and to continue with:
+The first time, you have to register the runner into your GitLab service (if you rebuild your container, it will get the 
+previous configuration from the shared config folder):
 
 ```
 export GITLAB=$(sudo docker ps -ql)
