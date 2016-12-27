@@ -12,7 +12,7 @@ services:
             - sasha
         environment:
             - REDIS_URL=redis://redis:6379
-            - HUBOT_SLACK_TOKEN=${SLACK_TOKEN}
+            - HUBOT_SLACK_TOKEN=xoxb-121123861797-KriMegpwgeG7twRQGleISpTv
 
     redis:
         image: redis:3.0-alpine
