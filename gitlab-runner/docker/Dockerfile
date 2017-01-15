@@ -32,4 +32,5 @@ RUN apk add --update curl \
     && addgroup -g ${DOCKER_GROUP_UID} -S docker \
     && adduser -D -h /home/gitlab-runner -u ${GITLAB_USER_UID} -G docker -s /bin/bash gitlab-runner \
     && chown root:docker /usr/bin/docker* \
+    && chown gitlab-runner /home/gitlab-runner
     && id gitlab-runner
