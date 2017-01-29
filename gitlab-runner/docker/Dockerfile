@@ -3,9 +3,9 @@ FROM gitlab/gitlab-runner:alpine
 
 ENV GLIBC_VERSION 2.23-r3
 ENV DOCKER_BUCKET get.docker.com
-ENV DOCKER_VERSION 1.12.5
+ENV DOCKER_VERSION 1.13.0
 ENV DOCKER_SHA256 0058867ac46a1eba283e2441b1bb5455df846144f9d9ba079e97655399d4a2c6
-ENV DOCKER_COMPOSE_VERSION 1.9.0
+ENV DOCKER_COMPOSE_VERSION 1.10.0
 ENV GITLAB_USER_UID 995
 ENV DOCKER_GROUP_UID 995
 
@@ -25,7 +25,7 @@ RUN apk add --update curl \
     && rmdir docker \
     && rm docker.tgz \
     && docker -v \
-    && curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose \
+    && curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose \
     && chmod +x /usr/bin/docker-compose \
     && apk del curl \
     && rm -rf glibc.apk glibc-bin.apk /var/cache/apk/* \
