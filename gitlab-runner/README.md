@@ -38,7 +38,7 @@ Check the *.gitlab-ci.yml* and *build.xml* files for real examples of CI/CD scri
 
 ## Advanced
 
-For a more stable installation, you can thrown up the gitlab-runner app as a systemd service instead of `docker run -d`:
+For a more stable installation, you can thrown up the gitlab-runner app as a `systemd service` instead of `docker run -d`:
 
 ```
 $ sudo su -
