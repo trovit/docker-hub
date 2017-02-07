@@ -31,4 +31,6 @@ RUN wget -qO /etc/apk/keys/sgerrand.rsa.pub "https://raw.githubusercontent.com/s
     && adduser -D -h /home/gitlab-runner -u ${GITLAB_USER_UID} -G docker -s /bin/bash gitlab-runner \
     && chown root:docker /usr/bin/docker* \
     && chown gitlab-runner /home/gitlab-runner \
-    && id gitlab-runner
+    && id gitlab-runner \
+    && apk add --update openssh-client \
+    && rm -rf /var/cache/apk/*
