@@ -19,7 +19,7 @@ $ mkdir /var/gitlab-runner/home
 Then, you can start the service:
 
 ```
-$ docker run -it -d --name gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock -v /var/gitlab-runner/config:/etc/gitlab-$ runner -v /var/gitlab-runner/home:/home/gitlab-runner trovit/docker-hub:gitlab-runner-docker
+$ docker run -it -d --name gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock -v /var/gitlab-runner/config:/etc/gitlab-runner -v /var/gitlab-runner/home:/home/gitlab-runner trovit/docker-hub:gitlab-runner-docker
 ```
 
 The first time, you have to register the runner into your GitLab service (if you rebuild your container, it will get the 
