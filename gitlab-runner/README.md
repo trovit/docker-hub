@@ -34,7 +34,13 @@ You will be prompted for the URI and token gitlab service. Get them from the pag
 More info [here](https://docs.gitlab.com/ce/user/project/new_ci_build_permissions_model.html).
 
 Next, you could start using the CI capabilities of GitLab following this [demo project](https://github.com/jorge07/ddd-playground/). 
-Check the *.gitlab-ci.yml* and *build.xml* files for real examples of CI/CD scripts. 
+Check the *.gitlab-ci.yml* file for real example of CI/CD scripts.
+
+If you get the next error executing any build: `mkdir: can't create directory '/home/gitlab-runner/builds/': Permission denied`, you can fix it changing the home path permissions for the gitlab-runner user:
+
+```
+$ chown gitlab-runner /home/gitlab-runner/
+```
 
 ## Advanced
 
