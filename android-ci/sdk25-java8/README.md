@@ -7,7 +7,9 @@ This project is part of the [Trovit's Docker Hub account](https://hub.docker.com
 
 ## Installation
 
-To use this docker image in your Gitlab CI system you need to add a .gitlab-ci.yml file with the following content:
+To use this docker image in your Gitlab CI system you need to add a .gitlab-ci.yml, this will launch a full build of your app, with lint and testing included. 
+
+A sample of content could be:
 
 ```
 image: trovit/android-ci
@@ -32,7 +34,6 @@ build:
     paths:
     - app/build/outputs/
 ```
-This will launch a full build of your app, with lint and testing included.
 
 ## Parties
 
