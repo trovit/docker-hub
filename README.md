@@ -12,6 +12,7 @@ to comment, suggest or collaborate anything.
 | [trovit/docker-hub:php-kafka-dev](https://github.com/trovit/docker-hub/blob/master/php-kafka/Dockerfile.dev)   | dev  | PHP-FPM 7.0 tweaked for development (including composer, xdebug, profiler, SSH) with php-kafka extension enabled. |
 | [trovit/docker-hub:proxy-kafka](https://github.com/trovit/docker-hub/blob/master/proxy-kafka/Dockerfile)   | -   | Include the Kafka-Pixy that it is a local aggregating HTTP proxy to Kafka. All based in ubuntu. It is necessary to define two variables KAFKA_PROXY_HOSTS and ZOOKEEPER_PROXY_HOSTS |
 | [trovit/docker-hub:gitlab-runner-docker](https://github.com/trovit/docker-hub/blob/master/gitlab-runner/docker/Dockerfile)   | -   | Gilab-runner (CI) for run dockerized projects. We recommend sharing the docker host daemon, gitlab-runner/config folder and certs folders from host to inside container. |
+| [trovit/docker-hub:gearman](https://github.com/trovit/docker-hub/blob/master/gearman/Dockerfile)   | -   | A Gearman  0.33 image over debian:wheezy. Exposes port 4730 |
 
 ### Example of use:
 Up any container locally running the next command in your project root path:
