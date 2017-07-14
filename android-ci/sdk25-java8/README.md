@@ -12,27 +12,12 @@ To use this docker image in your Gitlab CI system you need to add a .gitlab-ci.y
 A sample of content could be:
 
 ```
-image: trovit/android-ci
-
-before_script:
-- export GRADLE_USER_HOME=$(pwd)/.gradle
-- chmod +x ./gradlew
-
-cache:
-  key: ${CI_PROJECT_ID}
-  paths:
-  - .gradle/
-
 stages:
   - build
-
 build:
   stage: build
   script:
-    - ./gradlew build
-  artifacts:
-    paths:
-    - app/build/outputs/
+    - docker run --rm -v $(pwd):/basedir -w /basedir trovit/android-ci:sdk25-java8 bash -c "chmod +x gradlew ; ./gradlew build"
 ```
 
 ## Parties
