@@ -10,4 +10,7 @@ RUN apt-get -qq update \
     && apt-get install -y --no-install-recommends  oracle-java8-set-default git \
     && apt-get purge -y software-properties-common python-software-properties \
     && apt-get autoremove -y \
+    && /sdk/tools/bin/sdkmanager --update \
+    && rm -rf /sdk/emulator/* \
+    && rm -rf /sdk/add-ons/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
