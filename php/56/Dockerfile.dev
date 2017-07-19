@@ -1,0 +1,42 @@
+FROM trovit/docker-hub:php56
+
+RUN apt-get update && apt-get install \
+	curl \
+	git \
+	openssh
+	vim \
+    nano \
+    wget \
+    openssh-server \
+    php5-xdebug \
+    telnet \
+	supervisor \
+	 && rm -rf /var/lib/apt/lists/*
+
+COPY conf/supervisord.conf    /etc/supervisor/conf.d/supervisord.conf
+COPY tools/composer.sh	/tmp/composer.sh
+
+RUN chmod +x /tmp/composer.sh
+RUN /tmp/composer.sh
+RUN rm /tmp/composer.sh
+
+# SSHD daemon setup as per the official documentation
+# at https://docs.docker.com/engine/examples/running_ssh_service/
+RUN mkdir /var/run/sshd \
+ && echo 'root:root' | chpasswd \
+ && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+ && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+# FPM child processes run as root
+RUN sed -i 's@user = www-data@user = root@' /etc/php5/fpm/pool.d/www.conf \
+ && sed -i 's@group = www-data@group = root@' /etc/php5/fpm/pool.d/www.conf \
+ && rm /etc/php5/cli/conf.d/20-xdebug.ini
+
+EXPOSE 22 9000
+
+ENV TINI_VERSION v0.13.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+
+ENTRYPOINT ["/tini", "--"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
