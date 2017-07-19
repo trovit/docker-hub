@@ -1,9 +1,8 @@
-FROM trovit/docker-hub:php56
+FROM trovit/docker-hub:php-56
 
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	curl \
 	git \
-	openssh
 	vim \
     nano \
     wget \
