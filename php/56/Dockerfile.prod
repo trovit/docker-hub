@@ -17,28 +17,21 @@ RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 7E3F070089DF5277 \
  && apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     libfcgi0ldbl \
+    unzip \
     php5-apcu \
-    php5-bcmath \
     php5-gmp \
-    php5-bz2 \
     php5-cli \
     php5-curl \
     php5-fpm \
     php5-gd \
     php5-intl \
     php5-mcrypt \
-    php5-mbstring \
     php5-mysql \
     php5-gearman \
     php5-pgsql \
-    php5-xml \
     php5-readline \
     php5-redis \
-    php5-sqlite3 \
-    php5-soap \
     php5-ssh2 \
-    php5-xml \
-    php5-zip \
  && rm -rf /var/lib/apt/lists/*
 
 COPY conf/php-cli.ini         /etc/php5/cli/php.ini

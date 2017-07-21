@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	curl \
 	git \
 	vim \
+    nano \
     wget \
     openssh-server \
     php5-xdebug \
@@ -11,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	supervisor \
 	 && rm -rf /var/lib/apt/lists/*
 
+COPY conf/xdebug.ini /etc/php5/mods-available/xdebug.ini
 COPY conf/supervisord.conf    /etc/supervisor/conf.d/supervisord.conf
 
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
